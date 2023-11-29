@@ -1,0 +1,193 @@
+/* 
+FONT
+
+- Family: [Outfit](https://fonts.google.com/specimen/Outfit)
+- Weights: 300, 400, 600
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+
+  /* COLORS */
+  --primary-soft-blue: hsl(215, 51%, 70%);
+  --primary-cyan: hsl(178, 100%, 50%);
+  --netural-main-bg: hsl(217, 54%, 11%);
+  --neutral-card-bg: hsl(216, 50%, 16%);
+  --neutral-line: hsl(215, 32%, 27%);
+  --neutral-white: hsl(0, 0%, 100%);
+
+  /* border: 0.1px solid white; */
+}
+
+html {
+  /* To change rem to 10base */
+  font-size: 62.5%;
+}
+
+img {
+  /* This sets the image to not spill the flex container */
+  max-width: 100%;
+}
+
+body {
+  /* Base body set up */
+  /* Centers the card vertically in the middle of the page */
+  min-height: 100vh;
+
+  color: var(--neutral-white);
+  background-color: var(--netural-main-bg);
+  /* - */
+  /* To reset base font size to 16px */
+  font-size: 1.6rem;
+
+  /* To align the card in the middle of the screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.card {
+  background-color: var(--neutral-card-bg);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 350px;
+  border-radius: 1.6rem;
+}
+
+.card__container {
+  /* Card container contains all elements on the card. Flex is used to space th eitems using gap with padding for space between the elements and the edge of the card container */
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 2.4rem;
+}
+
+/* The poistion is relative as it is the parent container for the overlay and view icon, which is set to absolute to remove it from the html flow and position over the card header*/
+.card__header {
+  position: relative;
+  cursor: pointer;
+}
+
+.nft-img {
+  border-radius: 1.6rem;
+}
+
+.overlay {
+  background-color: var(--primary-cyan);
+  opacity: 40%;
+
+  /* Positions the overlay div over the parent covering the entire image */
+  position: absolute;
+  top: 0;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+
+  border-radius: 1.6rem;
+  display: none;
+}
+
+.view-icon {
+  position: absolute;
+  /* Positions icon in the center of the parent element */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: none;
+}
+
+.card__header:hover .overlay,
+.card__header:hover .view-icon {
+  display: block;
+}
+
+/* Set to flex for spacing */
+.card__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.card__title {
+  font-size: 2.5rem;
+}
+
+.card__title:hover {
+  cursor: pointer;
+  color: var(--primary-cyan);
+  transition: all 0.5s ease;
+}
+
+.card__description {
+  color: var(--primary-soft-blue);
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Each icons div is set to flex for spacing and horizontal center alignment */
+.icons div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eth-icon {
+  color: var(--primary-cyan);
+}
+
+.clock-icon {
+  color: var(--primary-soft-blue);
+}
+
+.line {
+  border-bottom: 1px solid var(--neutral-line);
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.avatar {
+  border: 1px solid var(--neutral-white);
+  border-radius: 50%;
+  width: 3rem;
+}
+
+.creator__name:hover {
+  color: var(--primary-cyan);
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.attribution {
+  font-size: 1remrem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.attribution:hover a {
+  color: var(--primary-cyan);
+  transition: 0.5sec;
+}
+
+@media (max-width: 375px) {
+  .card {
+    width: 330px;
+  }
+}
